@@ -11,17 +11,14 @@ func generate(numRows int) [][]int {
 
 	for i := 0; i < numRows; i++ {
 		triangleRow := []int{}
-
 		for j := 0; j <= i; j++ {
 			if j == 0 || j == i {
 				triangleRow = append(triangleRow, 1)
-			} else {
-				if i >= 1 && j >= 1 {
-					num1 := triangle[i-1][j-1]
-					num2 := triangle[i-1][j]
-					triangleRow = append(triangleRow, num1+num2)
-				}
+				continue
 			}
+			num1 := triangle[i-1][j-1]
+			num2 := triangle[i-1][j]
+			triangleRow = append(triangleRow, num1+num2)
 		}
 		triangle = append(triangle, triangleRow)
 	}

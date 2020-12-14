@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func main() {
@@ -11,9 +10,24 @@ func main() {
 }
 
 func lengthOfLastWord(s string) int {
-	words := strings.Fields(s)
-	if len(words) == 0 {
+	if len(s) == 0 {
 		return 0
 	}
-	return len(words[len(words)-1])
+
+	count := 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] != ' ' {
+			count++
+		}
+
+		if count > 0 && s[i] == ' ' {
+			return count
+		}
+
+		if i == 0 && count == 0 {
+			return 0
+		}
+	}
+
+	return count
 }

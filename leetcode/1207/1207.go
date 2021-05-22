@@ -15,7 +15,7 @@ func uniqueOccurrences(arr []int) bool {
 	for _, num := range arr {
 		_, ok := counts[num]
 		if !ok {
-			counts[num] = 0;
+			counts[num] = 0
 		} else {
 			counts[num] += 1
 		}
@@ -26,10 +26,10 @@ func uniqueOccurrences(arr []int) bool {
 	for _, value := range counts {
 		_, ok := freqs[value]
 		if ok {
-			return false;
+			return false
 		}
-		freqs[value] = false;
+		freqs[value] = false
 	}
 
-    return true;
+	return true
 }
